@@ -224,7 +224,3 @@ git remote add upstream https://github.com/isabellaalstrom/lovelace-grocy-chores
 6. Copy the compiled card in the `output/` folder to your Home Assistant installation and update the dashboard resources to point to it. Make sure the cache is cleared each time you try updating with new changes.
 7. Push the changes back to your GitHub origin, and open a pull request if you want to contribute them to the main repository.
 ---
-
-Like my work and want to say thanks? Do it here:
-
-<a href="https://www.buymeacoffee.com/iq1f96D" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
