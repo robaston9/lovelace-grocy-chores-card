@@ -279,7 +279,7 @@ class GrocyChoresCard extends LitElement {
             `
         } else {
             return html`
-                <div class="info flex">${this._translate("No todos")}!</div>
+                <div class="info flex">${this._translate("No f'ing todos")}!</div>
             `
         }
     }
@@ -553,6 +553,8 @@ class GrocyChoresCard extends LitElement {
         visible = visible && (this.filter !== undefined ? this._checkMatchNameFilter(item) : true);
         visible = visible && (this.filter_user !== undefined ? this._checkMatchUserFilter(item) : true);
 
+        visible = visible && (this._checkForLastTrackedToday(item));
+
         if(item.__type === "task" && this.filter_task_category !== undefined) {
             visible = visible && this._checkMatchTaskCategoryFilter(item);
         }
@@ -580,6 +582,10 @@ class GrocyChoresCard extends LitElement {
     _checkMatchUserFilter(item) {
         let userArray = [].concat(this.filter_user).map((user) => user === "current" ? this._getUserId() : user);;
         return userArray.some((user) => item.__user_id == user);
+    }
+
+    _checkForLastTrackedToday(item) {
+        return item.__last_tracked_date && item.__last_tracked_days > 0;            
     }
 
     _checkMatchTaskCategoryFilter(item) {
@@ -701,6 +707,7 @@ class GrocyChoresCard extends LitElement {
     }
 
     _showTrackedToast(itemName) {
+        console.log("Tracked an item!");
         this._showToast(itemName, this._translate("Tracked"));
     }
 
